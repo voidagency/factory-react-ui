@@ -108,4 +108,9 @@ const defaultColorVariants = {
     danger  :  colors.danger500
 }
 
-export default {...colors, ...defaultColorVariants};
+const capitalAzurColorTheme = {
+    lightBlue: '#017CFE',
+    darkBlue: '#08286A',
+}
+
+export default {...colors, ...defaultColorVariants, ...capitalAzurColorTheme};
