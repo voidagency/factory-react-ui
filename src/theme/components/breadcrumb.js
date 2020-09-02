@@ -1,32 +1,32 @@
 
 
 const breadcrumb = {
-    
 
-    item: {
-
-    },
-    activeItem: {
-
-    },
-
-    // variants
-
-    capitalazur: {
+    saber: {
         backgroundColor: 'transparent',
         padding: 'small',
         fontFamily: 'montserrat',
         fontSize: '16px',
-        item: {
 
-        },
-        activeItem: {
+        item: {
             color: 'primary900',
-            ':hover': {
+            active: {
                 color: 'primary500'
             }
         },
-    }
+
+        separator: {
+
+        },
+
+        '& .vf-breadcrumb__item': {
+
+        },
+        '& vf-breadcrumb__item.vf-breadcrumb__item--active': {
+            ':hover': {
+            }
+        },
+    },
 
 };
 

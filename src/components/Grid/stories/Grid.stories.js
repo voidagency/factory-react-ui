@@ -16,7 +16,7 @@ const Panel = (props) => {
 export const EqualWidth = () => {
 
     return (
-        <Container fluid={boolean('fluid', true, 'props')}>
+        <Container fluid={false}>
             <Row>
                 <Col><Panel>1</Panel></Col>
             </Row>
@@ -113,7 +113,7 @@ export const Responsive = () => {
 
 
 export default {
-    title: 'Grid',
+    title: 'Primitives/Grid',
     decorators: [withKnobs],
     parameters: {
         actions: { disabled: true }
