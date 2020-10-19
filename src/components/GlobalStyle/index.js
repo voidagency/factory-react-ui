@@ -2,7 +2,7 @@ import { createGlobalStyle } from "styled-components";
 
 
 export const GlobalStyle = createGlobalStyle`
-
+    @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;700;900&display=swap');
     *,
     *::before,
     *::after {
@@ -17,6 +17,9 @@ export const GlobalStyle = createGlobalStyle`
 
     ol, ul {
         list-style: none;
+    }
+    img {
+        max-width: 100%;
     }
 
 

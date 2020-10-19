@@ -5,12 +5,12 @@ import {Heading, Paragraph} from "../../Typography";
 import {Permalink} from "../../Button/Button";
 
 
-export const ContenuLibre = ({colImage, imageUrl, title, description, cardImage, cta_text, cta_link, centercontent}) => {
+export const ContenuLibre = ({imageUrl, title, description, cardImage, cta_text, cta_link, centercontent}) => {
     const contentTextAlignClass = centercontent ? 'center' : "left";
     return (
         <Container>
             <Row justifyContent="center">
-                <Col xs={12} sm={12} md={colImage} textAlign={contentTextAlignClass}>
+                <Col xs={12} sm={12} md={10} textAlign={contentTextAlignClass}>
                     {imageUrl &&
                     <Image src={imageUrl} width="100px"/>
                     }

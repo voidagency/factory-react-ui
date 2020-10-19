@@ -1,48 +1,85 @@
 import React from 'react';
-import {withKnobs} from "@storybook/addon-knobs";
+import {withKnobs, boolean, text} from "@storybook/addon-knobs";
 import PictoImage from "../../staticAssets/pictoImage.png"
 import CardImage from '../../staticAssets/img1.jpg'
-import {ContenuLibre} from "../contenuLibre";
+import {ContenuLibreContainer} from "../contenuLibre.container";
+import {DirectionManager} from "../../../../core/dir-manager";
+
+const groupID = "Options";
+const groupContenu = "Contenu";
+const groupRtl = "Version arabe"
+const activeRtl = false
 
 
-const _data = {
-    title: "This is the title",
-    description: "2 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias cupiditate enim eos fuga illo, libero minus, nam praesentium quidem quod, ratione temporibus voluptas! Atque consectetur dignissimos doloremque doloribus hic pariatur.",
-    cta_link: "/",
-    cta_text: "En savoir plus 2 ",
-    colImage: 10,
-    centercontent: true,
-}
-const _dataV1 = {
-    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias cupiditate enim eos fuga illo, libero minus, nam praesentium quidem quod, ratione temporibus voluptas! Atque consectetur dignissimos doloremque doloribus hic pariatur. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, aspernatur consequuntur corporis cum dolores eos ex excepturi expedita, illo laudantium necessitatibus neque odio pariatur praesentium recusandae rem sint suscipit tempore?",
-    cta_link: "/",
-    cta_text: "En savoir plus",
-    colImage: 10,
-    imageUrl: PictoImage,
-    centercontent: true,
-}
-const _dataV2 = {
-    title: "This is the title",
-    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias cupiditate enim eos fuga illo, libero minus, nam praesentium quidem quod, ratione temporibus voluptas! Atque consectetur dignissimos doloremque doloribus hic pariatur.",
-    colImage: 10,
-    cardImage: CardImage,
-    centercontent: false,
-}
-
-export const contenuLibre = () => {
-    return <ContenuLibre {..._data} />
+export const Variant1 = () => {
+    const rtl = boolean('Activer RTl', activeRtl, groupRtl)
+    const data = {
+        title: "This is the title",
+        description: "2 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias cupiditate enim eos fuga illo, libero minus, nam praesentium quidem quod, ratione temporibus voluptas! Atque consectetur dignissimos doloremque doloribus hic pariatur.",
+        cta_text: "En savoir plus",
+        cta_link: "/",
+        centercontent: boolean('Centrer le text', true, groupID),
+    }
+    const data_ar = {
+        title: "هذا هو العنوان",
+        description: "لوريم ايبسوم هو نموذج افتراضي يوضع في التصاميم لتعرض على العميل ليتصور طريقه وضع النصوص بالتصاميم سواء كانت تصاميم مطبوعه ... بروشور او فلاير على سبيل المثال ... او نماذج مواقع انترنت",
+        cta_text: 'اقرأ أكثر',
+        cta_link: "/",
+        centercontent: boolean('Centrer le text', true, groupID),
+    }
+    return (
+        <DirectionManager dir={rtl ? 'rtl' : 'ltr'}>
+            <ContenuLibreContainer data={rtl ? data_ar : data}/>
+        </DirectionManager>
+    )
 }
 
-export const ContenuLibreAvecPictou = () => {
-    return  <ContenuLibre {..._dataV1} />
+export const Variant2 = () => {
+    const rtl = boolean('Activer RTl', activeRtl, groupRtl)
+    const data = {
+        description: "2 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias cupiditate enim eos fuga illo, libero minus, nam praesentium quidem quod, ratione temporibus voluptas! Atque consectetur dignissimos doloremque doloribus hic pariatur.",
+        cta_text: "En savoir plus",
+        cta_link: "/",
+        imageUrl: PictoImage,
+        centercontent: boolean('Centrer le text', true, groupID),
+    }
+    const data_ar = {
+        description: "لوريم ايبسوم هو نموذج افتراضي يوضع في التصاميم لتعرض على العميل ليتصور طريقه وضع النصوص بالتصاميم سواء كانت تصاميم مطبوعه ... بروشور او فلاير على سبيل المثال ... او نماذج مواقع انترنت",
+        cta_text: 'اقرأ أكثر',
+        cta_link: "/",
+        imageUrl: PictoImage,
+        centercontent: boolean('Centrer le text', true, groupID),
+    }
+    return (
+        <DirectionManager dir={rtl ? 'rtl' : 'ltr'}>
+            <ContenuLibreContainer data={rtl ? data_ar : data}/>
+        </DirectionManager>
+    )
 }
-export const contenuLibreAvecImageFull = () => {
-    return <ContenuLibre {..._dataV2} />
+export const Variant3 = () => {
+    const rtl = boolean('Activer RTl', activeRtl, groupRtl)
+    const data = {
+        title: "This is the title",
+        description: "2 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias cupiditate enim eos fuga illo, libero minus, nam praesentium quidem quod, ratione temporibus voluptas! Atque consectetur dignissimos doloremque doloribus hic pariatur.",
+        cardImage: CardImage,
+        centercontent: boolean('Centrer le text', false, groupID),
+    }
+    const data_ar = {
+        title: "هذا هو العنوان",
+        description: "لوريم ايبسوم هو نموذج افتراضي يوضع في التصاميم لتعرض على العميل ليتصور طريقه وضع النصوص بالتصاميم سواء كانت تصاميم مطبوعه ... بروشور او فلاير على سبيل المثال ... او نماذج مواقع انترنت",
+        cardImage: CardImage,
+        centercontent: boolean('Centrer le text', false, groupID),
+    }
+    return (
+        <DirectionManager dir={rtl ? 'rtl' : 'ltr'}>
+            <ContenuLibreContainer data={rtl ? data_ar : data}/>
+        </DirectionManager>
+    )
 }
 
 
 export default {
-    title: 'Dynamic Fields/ContenuLibre',
+    title: 'Dynamic Fields/Contenu Libre',
     decorators: [withKnobs],
 };
 

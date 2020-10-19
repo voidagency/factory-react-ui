@@ -76,6 +76,61 @@ const outlineVariants = StyledVariant({
 
 `;
 
+export const Permalink = styled.button`    
+    position: relative;
+    color: ${props => props.theme.colors.primary600};
+    display: inline-flex;
+    font-size: 14px;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    text-transform: uppercase;
+    border: none;
+    padding: 0;
+    margin: 0;
+    padding-bottom: 8px;
+    background: transparent;
+    &:after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 100%;
+        height: 3px;
+        background: ${props => props.theme.colors.primary600};
+        transition: width .3s ease-in;
+    }
+    &:hover {
+        cursor: pointer;
+        &:after {
+            width: 0;
+        }
+    }
+
+    
+    ${buttonStyle}
+    ${fillVariants}
+    ${outlineVariants}
+    ${sizeVariants}
+    ${variant}
+    ${sx}
+    ${compose(
+    width,
+    height,
+    display,
+    space,
+    color,
+    typography,
+    flexbox,
+    background,
+    border,
+    position,
+    shadow
+)}
+
+`;
+
+
 Button.defaultProps = {
     fill: 'primary',
     size: 'medium',

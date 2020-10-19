@@ -10,7 +10,7 @@ const CapitalCardTitle = ({ sx, children, ...rest }) => {
         sx={sx}
         __css={{
             fontSize: ['16px', null, '18px', null,],
-            ineHeight: "28px",
+            lineHeight: "28px",
             fontWeight: 600,
             letterSpacing: '0',
             marginBottom: '16px'
