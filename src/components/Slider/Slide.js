@@ -1,6 +1,7 @@
 import React, { useRef, useEffect } from 'react';
 import { Box } from '../Box';
 import YouTube from 'react-youtube';
+import YoutubeBackground from 'react-youtube-background';
 import { findParentByMatchedQuery } from '../../core';
 
 
@@ -62,8 +63,46 @@ const SlideVideo = ({ videoId, sx, variant, opt, ...rest }) => {
     </Box>
 }
 
+const SlideBgVideo = ({ bgVideoId, sx, variant, opt, ...rest }) => {
 
-export const Slide = ({ children, isActive = false, subtitle = null, content = null, bgImage = null, videoId = null, ...rest }) => {
+    const options = {
+        height: '100%',
+        width: '100%',
+        playerVars: {
+            autoplay: 1,
+            loop: 1,
+            controls: 0,
+            rel: 0,
+            showinfo: 0
+        },
+
+        ...opt
+    }
+
+    return <Box __css={{
+        width: '100%',
+        height: '100%',
+        background: '0 0',
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        bottom: 0,
+        overflow: 'hidden',
+        '& > div:first-child, & iframe': {
+            height: '100%',
+            width: '100%'
+        },
+
+    }}
+                variant={variant}
+                sx={variant}
+    >
+        <YoutubeBackground {...rest} opt={options} videoId={bgVideoId} />
+    </Box>
+}
+
+
+export const Slide = ({ children, isActive = false, subtitle = null, content = null, bgImage = null, videoId = null, bgVideoId = null, ...rest }) => {
 
     const ref = useRef(null);
     const refVideo = useRef(null);
@@ -109,7 +148,8 @@ export const Slide = ({ children, isActive = false, subtitle = null, content = n
         }
     }} {...rest}>
 
-        {videoId && <SlideVideo videoId={videoId} onReady={onVideoReady} />}
+        {bgVideoId && <SlideBgVideo bgVideoId={bgVideoId} onReady={onVideoReady} />}
+        {(videoId && !bgVideoId) && <SlideVideo videoId={videoId} onReady={onVideoReady} />}
         {subtitle && <SlideSubtitle subtitle={subtitle} />}
         {bgImage && <SlideIamge imageSrc={bgImage} />}
         {content && <Box sx={{
