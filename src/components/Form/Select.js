@@ -70,7 +70,7 @@ const StyledSelectBox = styled(Box)(
 );
 
 const Select = forwardRef(({ variant, children, options, ...props }, ref) => {
-
+    const {icon} = props;
     const selectRef = ref || useRef();
 
     return <Flex {...getMarginProps(props)} {...getLayoutProps(props)} __css={{ width: 'fit-content',
@@ -106,7 +106,7 @@ const Select = forwardRef(({ variant, children, options, ...props }, ref) => {
             }
 
         </StyledSelectBox>
-        <SelectIcon />
+        <SelectIcon icon={icon} />
 
     </Flex>
 });
