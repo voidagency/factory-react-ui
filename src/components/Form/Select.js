@@ -1,23 +1,21 @@
 import React, { forwardRef, useRef } from 'react';
+import styled, {css} from 'styled-components';
+import {variant} from 'styled-system';
 import { Box, Flex } from '../Box';
 import { getMarginProps, omitMarginProps, getLayoutProps } from '../../core';
 
 
-const SVG = ({ size = 24, ...props }) =>
-    <Box
-        as='svg'
+const DownArrow = ({size = 24, ...rest}) => (
+    <svg
         xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
+        width={size}
+        height={size}
         viewBox="0 0 24 24"
         fill='currentcolor'
-        {...props}
-    />
-
-const DownArrow = props =>
-    <SVG {...props}>
+    >
         <path d="M7 10l5 5 5-5z" />
-    </SVG>
+    </svg>
+)
 
 
 const SelectIcon = ({ icon }) => {
@@ -38,13 +36,46 @@ const SelectIcon = ({ icon }) => {
     </Flex>;
 };
 
+const StyledSelectBox = styled(Box)(
+    variant({
+        prop: 'state',
+        scale: 'select.states',
+        variants: {
+            default: {
+                borderColor: 'primary',
+                ':focus': {
+                    boxShadow: css`${t => `0 0 0 2px ${t.colors.primary}`}`,
+                },  
+            },
+            danger: {
+                borderColor: 'danger',
+                ':hover,:active': {
+                    boxShadow: css`${t => `0 0 0 2px ${t.colors.danger}`}`,
+                },
+            },
+            success: {
+                borderColor: 'success',
+                ':hover,:active': {
+                    boxShadow: css`${t => `0 0 0 2px ${t.colors.success}`}`,
+                }
+            },
+            info: {
+                borderColor: 'info',
+                ':hover,:active': {
+                    boxShadow: css`${t => `0 0 0 2px ${t.colors.info}`}`,
+                }
+            },
+        }
+    })
+);
+
 const Select = forwardRef(({ variant, children, options, ...props }, ref) => {
 
     const selectRef = ref || useRef();
 
     return <Flex {...getMarginProps(props)} {...getLayoutProps(props)} __css={{ width: 'fit-content',
     position: 'relative' }}>
-        <Box
+        <StyledSelectBox
             ref={selectRef}
             as='select'
             variant={`select${variant ? '.' + variant : ''}`}
@@ -63,9 +94,7 @@ const Select = forwardRef(({ variant, children, options, ...props }, ref) => {
                 pr: '32px',
                 bg: 'transparent',
                 ':focus': {
-                    borderColor: 'primary500',
                     outline: 'none',
-                    boxShadow: t => `0 0 0 2px ${t.colors.primary500}`,
                 }
             }} >
 
@@ -76,7 +105,7 @@ const Select = forwardRef(({ variant, children, options, ...props }, ref) => {
                 : children
             }
 
-        </Box>
+        </StyledSelectBox>
         <SelectIcon />
 
     </Flex>
