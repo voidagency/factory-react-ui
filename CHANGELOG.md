@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 1.0.7 (2020-12-03)
+
+### Bug Fixes
+
+* Select Icon size ([:link:](https://github.com/voidagency/factory-react-ui/commit/ce618314bf01149d5acb4a3a4f1a5c7195bbd5f2))
+* Select: Passing icon prop ([:link:](https://github.com/voidagency/factory-react-ui/commit/7b1e8adedb16ce43bc7ff6db021662f6b58a08b1))
+
+### New Features
+
+* Select state variants ([:link:](https://github.com/voidagency/factory-react-ui/commit/f8a38e5c3fda292b021344dd99ff6109991c946a))
+
 # 1.0.6 (2020-11-20)
 
 ### Bug Fixes
