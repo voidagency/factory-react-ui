@@ -2709,7 +2709,7 @@ var WrapperIcon = function WrapperIcon(_ref) {
 };
 var Icon = styled(WrapperIcon).withConfig({
   shouldForwardProp: function shouldForwardProp(prop, defaultValidatorFn) {
-    return !['sx', '__css'].concat(props).includes(prop);
+    return !['sx', 'name', '__css'].concat(props).includes(prop);
   }
 }).attrs(function (props) {
   return {

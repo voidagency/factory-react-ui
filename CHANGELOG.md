@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 1.0.8 (2020-12-14)
+
+### Bug Fixes
+
+* Icons: Prevent 'name' prop from being sent to html element ([:link:](https://github.com/voidagency/factory-react-ui/pull/11))
+
 # 1.0.7 (2020-12-03)
 
 ### Bug Fixes
