@@ -24,7 +24,7 @@ export const WrapperIcon = ({...rest}) => {
 };
 
 export const Icon = styled(WrapperIcon).withConfig({
-    shouldForwardProp: (prop, defaultValidatorFn) => { return  !['sx', '__css', ...systemProps].includes(prop);}
+    shouldForwardProp: (prop, defaultValidatorFn) => { return  !['sx', 'name', '__css', ...systemProps].includes(prop);}
   }).attrs(props => ({
     removeInlineStyle: true,
     icon: props.name || props.icon,

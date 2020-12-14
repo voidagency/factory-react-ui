@@ -2716,7 +2716,7 @@ var WrapperIcon = function WrapperIcon(_ref) {
 };
 var Icon = styled__default(WrapperIcon).withConfig({
   shouldForwardProp: function shouldForwardProp$1(prop, defaultValidatorFn) {
-    return !['sx', '__css'].concat(shouldForwardProp.props).includes(prop);
+    return !['sx', 'name', '__css'].concat(shouldForwardProp.props).includes(prop);
   }
 }).attrs(function (props) {
   return {
