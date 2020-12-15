@@ -16,7 +16,8 @@ Les propriétés de **`Slide`** :
 | subtitle         | La section subtitle du slide | `JSX Componant`   | `null`   |
 | content         | Le contneu du slide | `JSX Componant`   | `null`   |
 | bgImage         | Indique l'image du background du slide | `string`  |  `null` |
-| bgVideo      | Indique la video du background du slide | `string`  |  `null` |
+| videoId      | Indique la video du youtube integrer sur slide | `string`  |  `null` |
+| bgVideoId      | Indique la video youtube en background du slide | `string`  |  `null` |
 | Box's props         |    |    |    |
 
 
